@@ -2,7 +2,12 @@
 # GIT test
 
 import test
-import socket 
+import socket
+import numpy as np
+import tensorflow as tf
+
+
+
 
 host = '' 
 port = 50000
