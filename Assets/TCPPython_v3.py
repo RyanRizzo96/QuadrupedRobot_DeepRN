@@ -6,9 +6,6 @@ import socket
 import numpy as np
 import tensorflow as tf
 
-
-
-
 host = '' 
 port = 50000
 backlog = 5
@@ -30,6 +27,7 @@ while True:
            
             while True:
                     data = connection.recv(size).decode()
+                    # data = connection.recv(size)
                     if data:
                         if data == "Disconnect":
                             print("Connection closed by Unity")
@@ -43,6 +41,7 @@ while True:
                             zInput = valuesList[2]
                             floatInput = float(valuesList[3])     # used to send float to C#
                             intInput = int(valuesList[4])
+                            # print("Float: ", floatInput, "  Int: ", intInput)
                             msg = xInput + "," + yInput + "," + zInput + "," + str(floatInput) + "," + str(intInput) + "\r\n"
                             connection.send(msg.encode('ascii'))  # .encode returns a byte representation of the string
         except KeyboardInterrupt:
