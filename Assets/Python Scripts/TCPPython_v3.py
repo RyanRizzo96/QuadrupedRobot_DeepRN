@@ -3,8 +3,8 @@
 
 import test
 import socket
-import numpy as np
 import tensorflow as tf
+import Numpy_test
 
 host = '' 
 port = 50000
@@ -16,6 +16,7 @@ socket.bind((host, port))
 socket.listen(backlog)
 
 test.test_func()  # prints "Hello!"
+Numpy_test.numpy_func() #
 print("Server Started")
 
 while True:
@@ -27,7 +28,6 @@ while True:
            
             while True:
                     data = connection.recv(size).decode()
-                    # data = connection.recv(size)
                     if data:
                         if data == "Disconnect":
                             print("Connection closed by Unity")
@@ -35,6 +35,7 @@ while True:
                             exit()
                             break
                         else:
+
                             valuesList = data.split(",")
                             xInput = valuesList[0]
                             yInput = valuesList[1]
