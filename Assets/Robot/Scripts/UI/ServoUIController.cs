@@ -7,6 +7,8 @@ public class ServoUIController : MonoBehaviour {
 
     public ServoMotor servo;
 
+    private Robot robot; //added
+
     public Text title;
     public Text angleText;
     public Toggle motorToggle;
@@ -17,8 +19,8 @@ public class ServoUIController : MonoBehaviour {
     private string prevValue;
     private float minAngle;
     private float maxAngle;
-    
-	private void Start ()
+
+    private void Start()
     {
         if (!servo) return;
 
@@ -35,11 +37,16 @@ public class ServoUIController : MonoBehaviour {
         slider.maxValue = maxAngle;
         slider.value = servo.GetServoAngle();
         slider.onValueChanged.AddListener(OnSliderChanged);
+
+        //servo.SetAngle(45);
+        //robot.legs[0].lowerLeg.SetAngle(45);
     }
-	
-	private void Update ()
+
+    private void Update()
     {
         if (!servo) return;
+
+
         angleText.text = servo.GetServoAngle().ToString("0.0") + "°";
         motorToggle.isOn = servo.IsMotorEnabled;
         fixToggle.isOn = servo.IsFixed;
@@ -62,7 +69,12 @@ public class ServoUIController : MonoBehaviour {
     public void OnTextInputChanged(string value)
     {
         if (!servo) return;
+
+        //angle variable life cycle starts her
         float angle;
+
+        //Converts the string representation of a number to its 32-bit signed integer equivalent.
+        //A return value indicates whether the conversion succeeded.
         if (float.TryParse(value, out angle))
         {
             if (angle > maxAngle || angle < minAngle)

@@ -3598,6 +3598,7 @@ MonoBehaviour:
   lowerLeg3Servo: {fileID: 500416435}
   upperLeg4Servo: {fileID: 385808790}
   lowerLeg4Servo: {fileID: 2138103933}
+  profile: {fileID: 0}
 --- !u!1 &485678601
 GameObject:
   m_ObjectHideFlags: 0

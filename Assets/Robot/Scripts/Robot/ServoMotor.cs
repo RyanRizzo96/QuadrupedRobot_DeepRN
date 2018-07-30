@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ServoMotor : MonoBehaviour
 {
-
     public bool isClockwise = true;
+
+    private Robot robot; //added
 
     [Space]
     [SerializeField]
@@ -380,4 +381,30 @@ public class ServoMotor : MonoBehaviour
             (Quaternion.AngleAxis(angleGizmoOffset, globalAxis) * GetJointDirection()) * 1.2f * gizmoScale);
     }
 #endif
+
+
+    //robot.legs[0].upperLeg.setAngle(45);
+}
+
+public class RandomMovement
+{
+
+    private Robot robot;
+
+    //Testing a basic loop which chooses random values for joint target angles
+    public void randomAngle()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            //robot.legs[i].lowerLeg.SetAngle(Random.Range(-45.0f, 45.0f));
+            robot.legs[i].lowerLeg.SetAngle(45);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            //robot.legs[i].upperLeg.SetAngle(Random.Range(-45.0f, 45.0f));
+            robot.legs[i].lowerLeg.SetAngle(45);
+        }
+
+    }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+    private Robot robot;
+
     public float forwardDirectionOffset = 0;
 
     public Leg[] legs = new Leg[4];
@@ -18,6 +20,12 @@ public class Robot : MonoBehaviour
     {
         initialDirection = GetForwardDirection();
         initialPosition = transform.position;
+    }
+
+    public void Update()
+    {
+
+        //robot.legs[1].lowerLeg.SetAngle(45);
     }
 
     /// <summary>
@@ -35,7 +43,7 @@ public class Robot : MonoBehaviour
     {
         return Vector3.SignedAngle(initialDirection, GetForwardDirection(), Vector3.up);
     }
-    
+
     /// <summary>
     /// Get distance walked forward.
     /// </summary>
@@ -148,3 +156,4 @@ public class Leg
     public ServoMotor upperLeg;
     public ServoMotor lowerLeg;
 }
+
