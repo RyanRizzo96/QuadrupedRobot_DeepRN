@@ -46,7 +46,7 @@ public class ServoUIController : MonoBehaviour {
     {
         if (!servo) return;
 
-
+        //servo.GetServoAngle is current angle
         angleText.text = servo.GetServoAngle().ToString("0.0") + "°";
         motorToggle.isOn = servo.IsMotorEnabled;
         fixToggle.isOn = servo.IsFixed;

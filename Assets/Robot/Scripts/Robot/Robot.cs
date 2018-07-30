@@ -25,7 +25,7 @@ public class Robot : MonoBehaviour
     public void Update()
     {
 
-        //robot.legs[1].lowerLeg.SetAngle(45);
+       // robot.legs[1].lowerLeg.SetAngle(45);
     }
 
     /// <summary>

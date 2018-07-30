@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class RobotUIController : MonoBehaviour
 {
+    public float current_angle;
+
     [SerializeField]
     private Robot robot;
     [SerializeField]
@@ -48,7 +50,11 @@ public class RobotUIController : MonoBehaviour
         toggleUpper.onValueChanged.AddListener(ToggleUpperLegs);
         toggleLower.onValueChanged.AddListener(ToggleLowerLegs);
 
-       
+        for (int i = 0; i < 4; i++)
+        {
+           // robot.legs[i].upperLeg.SetAngle(Random.Range(-90.0f, 90.0f));
+        }
+        
     }
 
     private void Update()
@@ -57,26 +63,34 @@ public class RobotUIController : MonoBehaviour
         if (distanceText) distanceText.text = "Distance: " + robot.GetDistance().ToString("0.000") + "m";
         if (headingText) headingText.text = "Heading: " + robot.GetHeading().ToString("00.0") + "°";
 
- 
-
-        SetAngleCoroutine();
+        StartCoroutine(SetAngleCoroutine());
     }
 
     private IEnumerator SetAngleCoroutine()
     {
         //Yield return suspends routine execution for given amount if seconds using scaled time
         //If profile exisits use delay set there, else timescale set to 0 
-        yield return new WaitForSeconds(profile ? profile.delay : 0);
-        upperLeg1Servo.servo.SetAngle(Random.Range(-90.0f, 90.0f));
-        yield return new WaitForSeconds(profile ? profile.delay : 0);
-        upperLeg2Servo.servo.SetAngle(Random.Range(-90.0f, 90.0f));
-        yield return new WaitForSeconds(profile ? profile.delay : 0);
-        upperLeg3Servo.servo.SetAngle(Random.Range(-90.0f, 90.0f));
-        yield return new WaitForSeconds(profile ? profile.delay : 0);
-        upperLeg4Servo.servo.SetAngle(Random.Range(-90.0f, 90.0f));
+
+        for (int i = 0; i < 4; i++)
+        {
+            float target = Random.Range(-90.0f, 90.0f);
+            robot.legs[i].upperLeg.SetAngle(target);
+
+            if (current_angle == target)
+            {
+
+            }
+
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+           
+        }
+
     }
 
-        public void ToggleUpperLegs(bool value)
+    public void ToggleUpperLegs(bool value)
     {
         foreach (var leg in robot.legs)
         {

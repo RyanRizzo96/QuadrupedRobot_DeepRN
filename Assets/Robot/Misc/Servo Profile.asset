@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4c1655fc7b0b64ab94d871ebb0e7b2, type: 3}
   m_Name: Servo Profile
   m_EditorClassIdentifier: 
-  delay: 0.757
+  delay: 1
   maxVelocity: 136
   maxForce: 3.3
-  gizmoScale: 0.43
-  gizmoMaxScaleDistance: 0.9
+  gizmoScale: 0.69
+  gizmoMaxScaleDistance: 4
