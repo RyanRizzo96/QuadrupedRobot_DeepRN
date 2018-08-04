@@ -70,7 +70,7 @@ public class ServoUIController : MonoBehaviour {
     {
         if (!servo) return;
 
-        //angle variable life cycle starts her
+        //angle variable life cycle starts here
         float angle;
 
         //Converts the string representation of a number to its 32-bit signed integer equivalent.

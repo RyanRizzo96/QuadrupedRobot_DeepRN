@@ -240,6 +240,7 @@ public class ServoMotor : MonoBehaviour
     /// <summary>
     /// Get joint angle in degrees.
     /// </summary>
+    // Changed to public
     private float GetJointAngle()
     {
         // We have to calculate joint angle manually, because HingeJoint.angle is broken since Unity 5.2 
@@ -328,6 +329,7 @@ public class ServoMotor : MonoBehaviour
     /// <summary>
     /// Convert joint angle to servo input/output space (inverse if counter clockwise)
     /// </summary>
+    /// changed to public
     private float JointAngleToServoSpace(float a)
     {
         if (!isClockwise) a = -a;
