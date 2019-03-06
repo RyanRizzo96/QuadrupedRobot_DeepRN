@@ -3,3 +3,4 @@ Project involving Deep Learning using TensorFlow, which involves GAIT learning o
 
 
 ![robot](https://imgur.com/a/wxnmp3Q)
+![alt text](https://imgur.com/a/wxnmp3Q)
